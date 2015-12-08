@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'therubyracer'
 gem 'pg'
+gem 'bcrypt'
+gem 'simple_form'
 
 group :development do
   gem 'web-console', '~> 2.0'
