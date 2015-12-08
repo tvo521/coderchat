@@ -1,0 +1,8 @@
+.bundle/
+.idea/
+/log/*
+!/log/.keep
+tmp/
+config/database.yml
+.DS_Store
+.localized
