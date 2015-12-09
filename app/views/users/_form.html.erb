@@ -1,0 +1,29 @@
+<div class="col-md-4 col-md-offset-4">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <div class="panel-title"><%= signup ? 'Sign Up' : 'Login' %></div>
+    </div>
+    <div class="panel-body">
+
+      <% if @user.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+          <h4><%= pluralize(@user.errors.count, 'error') %> prohibited this user from being created:</h4>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= simple_form_for @user do |f| %>
+        <%= f.input :name if signup %>
+        <%= f.input :email %>
+        <%= f.input :password %>
+        <%= f.input :password_confirmation if signup %>
+        <%= f.submit 'Sign Up', class: "btn #{signup ? 'btn-success' : 'btn-primary'}" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
