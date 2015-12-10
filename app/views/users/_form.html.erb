@@ -21,7 +21,11 @@
         <%= f.input :email %>
         <%= f.input :password %>
         <%= f.input :password_confirmation if signup %>
-        <%= f.submit 'Sign Up', class: "btn #{signup ? 'btn-success' : 'btn-primary'}" %>
+        <% if signup %>
+          <%= f.submit 'Sign Up', class: 'btn btn-success' %>
+        <% else %>
+          <%= f.submit 'Login', class: 'btn btn-primary' %>
+        <% end %>
       <% end %>
 
     </div>

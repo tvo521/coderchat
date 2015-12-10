@@ -1,1 +1,24 @@
-<%= render partial: 'form', locals: {signup: false} %>
+<div class="col-md-8 col-md-offset-2">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <% %w(Name Email Actions).each do |title| %>
+          <th><%= title %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <%= @users.earch do |user| %>
+        <tr>
+          <% [user.name, user.email].each do |content| %>
+            <td><%= content %></td>
+          <% end %>
+          <td>
+            <button class="btn btn-success">Add Friend</button>
+            <button class="btn btn-info">Sent Messages</button>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

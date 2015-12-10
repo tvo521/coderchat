@@ -21,18 +21,17 @@
       </button>
       <a class="navbar-brand" href="#">CoderChat</a>
     </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="#">About</a>
-        </li>
-        <li>
-          <a href="#">Contact</a>
-        </li>
-      </ul>
-    </div>
-    <!-- /.navbar-collapse -->
+    <% if logged_in? %>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>
+            <%= link_to 'Logout', logout_users_path %>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    <% end %>
   </div>
   <!-- /.container -->
 </nav>
