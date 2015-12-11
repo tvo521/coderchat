@@ -1,0 +1,21 @@
+<div class="col-md-8 col-md-offset-2">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <% %w(Body Actions).each do |title| %>
+          <th><%= title %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @messages.each do |msg| %>
+        <tr>
+          <td><%= msg.body %></td>
+          <td>
+            <button class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

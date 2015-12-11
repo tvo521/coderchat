@@ -1,8 +1,8 @@
-# Homework 2 - *Name of App*
+# Homework 2 - CoderChat
 
-**Name of your app** is a Ruby on Rails blog application that allows users to send messages to each other that can only be read once.
+CoderChat is a Ruby on Rails blog application that allows users to send messages to each other that can only be read once.
 
-Submitted by: **Your Name Here**
+Submitted by: Tony Vo
 
 Time spent: **X** hours
 
@@ -54,7 +54,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2015 Tony Vo
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

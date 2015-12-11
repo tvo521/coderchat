@@ -1,0 +1,16 @@
+<div class="col-md-4 col-md-offset-4">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <div class="panel-title">Login</div>
+    </div>
+    <div class="panel-body">
+
+      <%= simple_form_for(@user, url: sessions_path, method: :post) do |f| %>
+        <%= f.input :email %>
+        <%= f.input :password %>
+        <%= f.submit 'Login', class: 'btn btn-primary' %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
