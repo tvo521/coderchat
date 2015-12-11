@@ -26,7 +26,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li>
-            <%= link_to 'Logout', logout_users_path, method: :delete %>
+            <%= link_to 'Logout', "/sessions/#{current_user.id}", method: :delete %>
           </li>
         </ul>
       </div>
@@ -38,6 +38,12 @@
 
 <!-- Page Content -->
 <div class="container">
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <%= flash_messages %>
+    </div>
+  </div>
 
   <div class="row">
     <%= yield %>

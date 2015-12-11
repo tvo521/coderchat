@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create, :login]
+  before_action :require_login, only: [:index]
 
   def index
     @messages = current_user.messages
@@ -10,32 +10,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.find_by_email(user_params[:email])
+    @user = User.new(user_params)
 
-    if @user
-      if @user.try(:authenticate, user_params[:password])
-        session[:user_id] = @user.id
-        redirect_to action: 'index'
-      else
-        redirect_to root_url
-      end
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to action: 'index'
     else
-      @user = User.new(user_params)
-      if @user.save!
-        session[:user_id] = @user.id
-        redirect_to action: 'index'
-      else
-        render :new
-      end
+      render :new
     end
-  end
-
-  def login
-    @user = User.new
-  end
-
-  def logout
-    session[:user_id] = nil
   end
 
   private
