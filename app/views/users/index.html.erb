@@ -2,20 +2,17 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <% %w(Name Email Actions).each do |title| %>
+        <% %w(Body Actions).each do |title| %>
           <th><%= title %></th>
         <% end %>
       </tr>
     </thead>
     <tbody>
-      <%= @users.earch do |user| %>
+      <% @messages.each do |msg| %>
         <tr>
-          <% [user.name, user.email].each do |content| %>
-            <td><%= content %></td>
-          <% end %>
+          <td><%= msg.body %></td>
           <td>
-            <button class="btn btn-success">Add Friend</button>
-            <button class="btn btn-info">Sent Messages</button>
+            <button class="btn btn-danger">Delete</button>
           </td>
         </tr>
       <% end %>
