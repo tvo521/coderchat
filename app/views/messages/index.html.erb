@@ -1,0 +1,22 @@
+<div class="col-md-8 col-md-offset-2">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <% %w(Body Date Actions).each do |title| %>
+          <th><%= title %></th>
+      <% end %>
+    </tr>
+    </thead>
+    <tbody>
+    <% @messages.each do |msg| %>
+      <tr>
+        <td><%= msg.body %></td>
+        <td><%= msg.created_at.to_s %></td>
+        <td>
+          <%= link_to 'Delete', {controller: 'messages', id: current_user.id}, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

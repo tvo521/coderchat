@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Coderchat</title>
+  <title>CoderChat</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -27,6 +27,12 @@
         <ul class="nav navbar-nav">
           <li>
             <%= link_to 'Logout', "/sessions/#{current_user.id}", method: :delete %>
+          </li>
+          <li>
+            <%= link_to 'Friends', users_path %>
+          </li>
+          <li>
+            <%= link_to 'Messages', messages_path %>
           </li>
         </ul>
       </div>

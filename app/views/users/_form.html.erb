@@ -5,7 +5,7 @@
     </div>
     <div class="panel-body">
 
-      <%= simple_form_for @user do |f| %>
+      <%= simple_form_for(@user, html: {novalidate: false}) do |f| %>
         <%= f.input :name %>
         <%= f.input :email %>
         <%= f.input :password %>

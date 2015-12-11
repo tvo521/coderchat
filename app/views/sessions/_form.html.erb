@@ -5,7 +5,7 @@
     </div>
     <div class="panel-body">
 
-      <%= simple_form_for(@user, url: sessions_path, method: :post) do |f| %>
+      <%= simple_form_for(@user, url: sessions_path, method: :post, html: {novalidate: false}) do |f| %>
         <%= f.input :email %>
         <%= f.input :password %>
         <%= f.submit 'Login', class: 'btn btn-primary' %>

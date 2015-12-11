@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :require_login, only: [:index]
 
   def index
-    @messages = current_user.messages
+    @users = User.all - current_user
   end
 
   def new
