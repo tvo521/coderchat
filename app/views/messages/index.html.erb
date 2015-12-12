@@ -2,8 +2,8 @@
   <table class="table table-bordered">
     <thead>
     <tr>
-      <% %w(Body Date Actions).each do |title| %>
-          <th><%= title %></th>
+      <% %w(Body ReceiveDate Sender Action).each do |title| %>
+        <th><%= title %></th>
       <% end %>
     </tr>
     </thead>
@@ -12,8 +12,9 @@
       <tr>
         <td><%= msg.body %></td>
         <td><%= msg.created_at.to_s %></td>
+        <td><%= msg.sender %></td>
         <td>
-          <%= link_to 'Delete', {controller: 'messages', id: current_user.id}, class: 'btn btn-danger' %>
+          <%= link_to 'Delete', user_message_path(msg, msg.user), method: :delete, html: {class: 'btn btn-danger'} %>
         </td>
       </tr>
     <% end %>

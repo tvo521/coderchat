@@ -1,0 +1,20 @@
+<div class="col-md-4 col-md-offset-4">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <div class="panel-title">
+        <strong>Send Message</strong>
+        <p>You are sending a message to <%= @message.user.email %></p>
+      </div>
+    </div>
+    <div class="panel-body">
+
+      <%= simple_form_for(@message, url: user_messages_path(@message.user), method: :post) do |f| %>
+        <%= f.input :body %>
+        <%= f.input :user_id, as: 'hidden', value: @message.user.id %>
+        <%= f.input :sender, as: 'hidden', value: @message.sender %>
+        <%= f.submit 'Send', class: 'btn btn-success' %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

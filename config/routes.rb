@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :messages
-
   resources :sessions
 
-  resources :users
+  resources :users do
+    resources :messages
+  end
 
   get 'welcome/index'
 

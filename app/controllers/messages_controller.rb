@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :require_login, only: [:index, :destroy]
+  before_action :require_login, only: [:index, :destroy, :new, :create]
 
   def index
     @messages = Message.where(user_id: current_user.id)
@@ -12,5 +12,28 @@ class MessagesController < ApplicationController
       flash[:error] = 'Message failed to delete.'
     end
     redirect_to action: 'index'
+  end
+
+  def new
+    @message = Message.new
+    @message.sender = current_user.email
+    @message.user = User.find(params[:user_id])
+  end
+
+  def create
+    @message = Message.new(message_params)
+
+    if @message.save
+      flash[:success] = "Message has been sent to #{@message.sender}"
+      redirect_to action: 'index'
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:body, :user_id, :sender)
   end
 end
