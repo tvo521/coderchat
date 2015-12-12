@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :require_login, only: [:index]
 
   def index
-    @messages = current_user.messages
+    @users = User.where('id NOT IN (?)', current_user.id)
   end
 
   def new

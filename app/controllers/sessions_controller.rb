@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :require_login, only: [:logout]
+  before_action :require_login, only: [:destroy]
 
   def new
     @user = User.new
@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     if @user.try(:authenticate, session_params[:password])
       session[:user_id] = @user.id
-      redirect_to users_path
+      redirect_to user_messages_path
     else
       flash[:error] = 'Email or password is incorrect.'
       redirect_to root_path

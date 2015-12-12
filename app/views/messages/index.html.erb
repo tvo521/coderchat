@@ -1,0 +1,23 @@
+<div class="col-md-8 col-md-offset-2">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <% %w(Body ReceiveDate Sender Action).each do |title| %>
+        <th><%= title %></th>
+      <% end %>
+    </tr>
+    </thead>
+    <tbody>
+    <% @messages.each do |msg| %>
+      <tr>
+        <td><%= msg.body %></td>
+        <td><%= msg.created_at.to_s %></td>
+        <td><%= msg.sender %></td>
+        <td>
+          <%= link_to 'Delete', user_message_path(msg, msg.user), method: :delete, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

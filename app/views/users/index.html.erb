@@ -2,17 +2,19 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <% %w(Body Actions).each do |title| %>
+        <% %w(Name Email JoinDate Action).each do |title| %>
           <th><%= title %></th>
         <% end %>
       </tr>
     </thead>
     <tbody>
-      <% @messages.each do |msg| %>
+      <% @users.each do |usr| %>
         <tr>
-          <td><%= msg.body %></td>
+          <td><%= usr.name %></td>
+          <td><%= usr.email %></td>
+          <td><%= usr.created_at.to_s %></td>
           <td>
-            <button class="btn btn-danger">Delete</button>
+            <%= link_to 'Send Message', new_user_message_path(usr), class: 'btn btn-info' %>
           </td>
         </tr>
       <% end %>
