@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :require_login, only: [:index, :destroy, :new, :create]
 
   def index
-    @messages = Message.where(user_id: current_user.id)
+    @messages = Message.where(user_id: current_user.id).order(created_at: :desc)
   end
 
   def destroy
@@ -24,7 +24,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
 
     if @message.save
-      flash[:success] = "Message has been sent to #{@message.sender}"
+      flash[:success] = "Message has been sent to #{@message.user.email}"
       redirect_to action: 'index'
     else
       render :new

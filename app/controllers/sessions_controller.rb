@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     if @user.try(:authenticate, session_params[:password])
       session[:user_id] = @user.id
-      redirect_to user_messages_path
+      redirect_to user_messages_path(@user.id)
     else
       flash[:error] = 'Email or password is incorrect.'
       redirect_to root_path
