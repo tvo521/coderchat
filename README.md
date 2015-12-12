@@ -44,7 +44,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](http://i.imgur.com/link/to/your/gif/file.gif)
+![Video Walkthrough](https://raw.githubusercontent.com/tvo521/coderchat/master/walkthrough-coderschool.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
