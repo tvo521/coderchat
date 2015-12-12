@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :require_login, only: [:index, :destroy, :new, :create]
+  before_action :require_login, only: [:index, :destroy, :new, :create, :update]
 
   def index
     @messages = Message.where(user_id: current_user.id).order(created_at: :desc)
@@ -31,9 +31,20 @@ class MessagesController < ApplicationController
     end
   end
 
+  def update
+    @message = Message.find(params[:id])
+
+    if @message.update(is_read: !@message.is_read)
+      flash[:success] = 'Message is updated successfully.'
+    else
+      flash[:error] = 'Failed to update message info.'
+    end
+    redirect_to action: 'index'
+  end
+
   private
 
   def message_params
-    params.require(:message).permit(:body, :user_id, :sender)
+    params.require(:message).permit(:body, :user_id, :sender, :is_read)
   end
 end
